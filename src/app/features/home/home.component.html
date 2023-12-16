@@ -1,0 +1,32 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav *ngIf="!userLogged" #sidenav="matSidenav" color="primary">
+        <mat-toolbar class="toolbar-sidenav">
+            <p-avatar label="G" styleClass="mr-2" [style]="{'background-color':'#ffffff', 'color': '#1861ac'}"></p-avatar>
+            
+            <span class="spacer"></span>
+
+            <span> GPCredit </span>
+            
+            <span class="spacer"></span>
+
+            <button mat-icon-button
+                (click)="sidenav.toggle()">
+                <mat-icon class="material-icons md-18">close</mat-icon>
+            </button>
+        </mat-toolbar>
+        
+        <app-side-nav [sidenav]="sidenav"></app-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <app-nav-menu *ngIf="!userLogged" [sidenav]="sidenav"></app-nav-menu>
+        
+        <div fxLayout="row"
+            fxLayoutAlign="center">
+            <div fxFlex="95"
+                [style.margin]="'50px 0'">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

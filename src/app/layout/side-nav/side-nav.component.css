@@ -1,0 +1,15 @@
+.active {
+    background: rgba(0, 0, 0, .2);
+}
+
+p {
+    color: #ffff;
+}
+
+mat-icon {
+    color: #ffff !important;
+}
+
+.active {
+    background: rgba(0,0,0,.2);
+}

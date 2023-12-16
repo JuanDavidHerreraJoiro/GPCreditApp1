@@ -1,0 +1,116 @@
+<mat-card class="mat-elevation-z4">
+    <mat-card-title class="cart-title">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxFlex="50">
+                <span>Registrar Cliente</span>
+            </div>
+            <div fxFlex="50" fxLayoutAlign="end">
+                <div fxLayout="row" fxLayoutGap="15px" fxLayoutGap.xs="10px">
+                    <button *ngIf="user && user.role === 'Admin'" type="submit" mat-raised-button color="primary" routerLink="/cliente/consultar-cliente">
+                        Consultar
+                        <i *ngIf="miFormulario.pending" class="pi pi-spin pi-spinner"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="guardar()" [formGroup]="miFormulario" autocomplete="off">
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Tipo de documento</mat-label>
+                    <mat-select formControlName="documentType" [errorStateMatcher]="vs.matcher">
+                        <mat-option value="CC">Cédula de ciudadanía </mat-option>
+                        <mat-option value="CE">Cédula de extranjería</mat-option>
+                        <mat-option value="PS">Pasaporte</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="vs.campoEsValido('documentType')">{{vs.getMensaje('documentType')}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Número de identificación</mat-label>
+                    <input matInput placeholder="Número identificación" formControlName="identification"
+                        [errorStateMatcher]="vs.matcher">
+                    <mat-error
+                        *ngIf="vs.campoEsValido('identification')">{{vs.getMensaje('identification')}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="name" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('name')">{{vs.getMensaje('name')}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Apellido" formControlName="lastName" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('lastName')">{{vs.getMensaje('lastName')}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Correo</mat-label>
+                    <input type="email" matInput placeholder="Correo" formControlName="email"
+                        [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('email')">{{vs.getMensaje('email')}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Celular</mat-label>
+                    <input matInput placeholder="Celular" formControlName="phone" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('phone')">{{vs.getMensaje('phone')}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="Dirección" formControlName="address" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('address')">{{vs.getMensaje('address')}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput placeholder="Usuario" formControlName="userName" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('userName')">{{vs.getMensaje('userName')}}</mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" formControlName="password" [errorStateMatcher]="vs.matcher">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                        </button>
+                    <mat-error *ngIf="vs.campoEsValido('password')">{{vs.getMensaje('password')}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Confirmar contraseña</mat-label>
+                    <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirmPassword" [errorStateMatcher]="vs.matcher">
+                    <mat-error *ngIf="vs.campoEsValido('confirmPassword')">{{vs.getMensaje('confirmPassword')}}</mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="end center">
+                <button *ngIf="!userLogged" type="submit" mat-raised-button color="warn" (click)="cancelar()" >
+                    Cancelar
+                </button>
+
+                <button type="submit" mat-raised-button color="primary">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

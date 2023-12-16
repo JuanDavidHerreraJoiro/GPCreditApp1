@@ -1,0 +1,107 @@
+Estructuta de GPCreditApp Front-End
+----------------------------------------------------------------------------
+1
+----------------------------------------------------------------------------
+src/
+├── app/
+│   ├── core/
+│   │   ├── authentication/
+│   │   │   ├── authentication.guard.ts
+│   │   │   └── token.guard.ts
+│   │   ├── http/
+│   │   │   └── http.interceptor.ts
+│   │   └── core.module.ts
+│   ├── shared/
+│   │   ├── components/
+│   │   ├── services/
+│   │   │   └── message.services.ts
+│   │   └── directives/
+│   ├── features/
+│   │   ├── home/
+│   │   │   ├── home.component.ts
+│   │   │   ├── home.component.html
+│   │   │   └── home.component.scss
+│   │   ├── authentication/
+│   │   │   │   ├── sesion/
+│   │   │   │   │   ├── classes/
+│   │   │   │   │   ├── services/
+│   │   │   │   │   │   └── authentication.service.ts
+│   │   │   │   │   ├── pages/
+│   │   │   │   │   │   ├── login/
+│   │   │   │   │   │   │   ├── login.component.ts
+│   │   │   │   │   │   │   ├── login.component.html
+│   │   │   │   │   ├── └── └── login.component.scss
+│   │   │   │   │   ├── sesion.module.ts
+│   │   │   │   │   └── sesion-routing.module.ts
+│   │   │   │   ├── cuenta/
+│   │   │   │   │   ├── classes/
+│   │   │   │   │   ├── services/
+│   │   │   │   │   │   └── cuenta.service.ts
+│   │   │   │   │   ├── pages/
+│   │   │   │   │   │   ├── actualizar-cuenta/
+│   │   │   │   │   │   │   ├── cuenta-usuario.component.ts
+│   │   │   │   │   │   │   ├── cuenta-usuario.component.html
+│   │   │   │   │   ├── └── └── cuenta-usuario.component.scss
+│   │   │   │   │   ├── cuenta.module.ts
+│   │   │   │   │   └── cuenta-routing.module.ts
+│   │   │   ├── authentication.module.ts
+│   │   │   └── authentication-routing.module.ts
+│   │   ├── cliente/
+│   │   │   ├── classes/
+│   │   │   ├── services/
+│   │   │   ├── pages/
+│   │   │   │   ├── registrar-cliente/
+│   │   │   │   │   ├── registrar-cliente.component.ts
+│   │   │   │   │   ├── registrar-cliente.component.html
+│   │   │   ├── ├── └── registrar-cliente.component.scss
+│   │   │   │   ├── consultar-cliente/
+│   │   │   │   │   ├── consultar-cliente.component.ts
+│   │   │   │   │   ├── consultar-cliente.component.html
+│   │   │   ├── └── └── consultar-cliente.component.scss
+│   │   │   ├── cliente.module.ts
+│   │   │   └── cliente-routing.module.ts
+│   │   ├── empleado/
+│   │   ├── ruta/
+│   │   ├── prestamo/
+│   │   │   │   ├── solicitud/
+│   │   │   │   │   ├── classes/
+│   │   │   │   │   ├── services/
+│   │   │   │   │   ├── pages/
+│   │   │   │   │   │   ├── registrar-solicitud/
+│   │   │   │   │   │   │   ├── registrar-solicitud.component.ts
+│   │   │   │   │   │   │   ├── registrar-solicitud.component.html
+│   │   │   │   │   ├── └── └── registrar-solicitud.component.scss
+│   │   │   │   │   ├── solicitud.module.ts
+│   │   │   │   │   └── solicitud-routing.module.ts
+│   │   │   ├── └── prestamo-aprobado/
+│   │   │   │   │   ├── classes/
+│   │   │   │   │   ├── services/
+│   │   │   │   │   ├── pages/
+│   │   │   │   │   │   ├── registrar-prestamo-aprobado/
+│   │   │   │   │   │   │   ├── registrar-prestamo-aprobado.component.ts
+│   │   │   │   │   │   │   ├── registrar-prestamo-aprobado.component.html
+│   │   │   │   │   ├── └── └── registrar-prestamo-aprobado.component.scss
+│   │   │   │   │   ├── prestamo-aprobado.module.ts
+│   │   │   │   │   └── prestamo-aprobado-routing.module.ts
+│   │   │   ├── prestamo.module.ts
+│   │   │   └── prestamo-routing.module.ts
+│   │   ├── pago/
+│   │   ├── reporte/
+│   ├── layout/
+│   │   ├── nav-menu/
+│   │   │   ├── nav-menu.component.ts
+│   │   │   ├── nav-menu.component.html
+│   │   │   └── nav-menu.component.scss
+│   │   ├── side-nav/
+│   │   │   ├── side-nav.component.ts
+│   │   │   ├── side-nav.component.html
+│   │   │   └── side-nav.component.scss
+│   │   ├── primeng.module.ts
+│   │   ├── material.module.ts
+│   │   └── layout.module.ts
+│   ├── app.component.ts
+│   ├── app.component.html
+│   ├── app.component.scss
+│   ├── app.module.ts
+│   └── app-routing.module.ts
+└── assets/

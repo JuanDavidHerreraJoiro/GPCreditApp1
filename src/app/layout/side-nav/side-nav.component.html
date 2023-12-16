@@ -1,0 +1,33 @@
+<div class="mt-5">
+    <mat-selection-list [multiple]="false" (click)="cerrarSidenav()" hideSingleSelectionIndicator>
+        <mat-list-option class="textto-blanco" [routerLink]="getHomeRoute()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon matListItemIcon>home</mat-icon>
+            <p matLine>Inicio</p>
+        </mat-list-option>
+
+        <mat-list-option routerLinkActive="active ">
+            <mat-icon fontSet="material-icons-outlined" matListItemIcon>credit_score</mat-icon>
+            <p matLine>Préstamo</p>
+        </mat-list-option>
+
+        <mat-list-option *ngIf="user && user.role === 'Admin'" routerLinkActive="active ">
+            <mat-icon fontSet="material-icons-outlined" matListItemIcon>badge</mat-icon>
+            <p matLine>Empleados</p>
+        </mat-list-option>
+
+        <mat-list-option *ngIf="user && user.role === 'Admin'" routerLink="cliente" routerLinkActive="active ">
+            <mat-icon fontSet="material-icons-outlined" matListItemIcon>person</mat-icon>
+            <p matLine>Clientes</p>
+        </mat-list-option>
+
+        <mat-list-option routerLinkActive="active ">
+            <mat-icon fontSet="material-icons-outlined" matListItemIcon>payments</mat-icon>
+            <p matLine>Pagos</p>
+        </mat-list-option>
+
+        <mat-list-option *ngIf="user && (user.role === 'Admin' || user.role === 'Employee')" routerLinkActive="active ">
+            <mat-icon fontSet="material-icons-outlined" matListItemIcon>map</mat-icon>
+            <p matLine>Rutas</p>
+        </mat-list-option>
+    </mat-selection-list>
+</div>
